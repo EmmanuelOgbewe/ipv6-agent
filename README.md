@@ -16,19 +16,6 @@ The IPv6 Agent Application consists of two main components:
    - The central server receives IPv6 addresses from multiple agents.
    - It stores the collected IPv6 addresses in a database.
 
-## Prerequisites
-
-Before running the agent script on your Linux machines, ensure you have the following prerequisites installed:
-
-- Python 3
-- `psutil` Python package (for retrieving network interface information)
-- `requests` Python package (for making HTTP requests to the central server)
-
-You can install the required Python packages using pip:
-
-```bash
-pip install -r requirements.txt
-```
 
 ## Installation and run (without Docker)
 
@@ -37,7 +24,7 @@ To install and run the IPv6 Agent Application, follow these steps:
 1. **Clone the Repository:**
 
 ```
-      git clone https://github.com/your-username/ipv6-agent.git
+git clone https://github.com/EmmanuelOgbewe/ipv6-agent
 ```
 
 2. **Navigate to the cloned directory:**
@@ -52,21 +39,31 @@ cd ipv6-agent
 chmod +x main.py
 ```
 
+## Prerequisites
+
+Before running the agent script on your Linux machines, ensure you have the prerequisites installed:
+
+You can install the required Python packages using pip:
+
+```bash
+pip install -r requirements.txt
+```
+
 4. **Run agent**
 
 ```
 ./main.py
 ```
 
-2. **Create a symbolic link (Optional)**:
+5. **Create a symbolic link (Optional)**:
 
-To run `ipv6_agent`. reate the symbolic link, use the following command:
+To run with `ipv6_agent`. create the symbolic link, use the following command:
 
 ```bash
 ln -s main.py ipv6_agent
 ```
 
-5. **Run with symbolic link**
+6. **Run with symbolic link**
 
 ```bash
   ./ipv6_agent
