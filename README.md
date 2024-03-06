@@ -37,7 +37,7 @@ To install and run the IPv6 Agent Application, follow these steps:
 1. **Clone the Repository:**
 
 ```
-      git clone https://github.com/your-username/ipv6-agent.git
+git clone https://github.com/your-username/ipv6-agent.git
 ```
 
 2. **Navigate to the cloned directory:**
