@@ -10,6 +10,10 @@ import psutil
 SLEEP_INTERVAL = 10
 HOSTNAME = socket.gethostname() 
 
+#Central server URl 
+SERVER_URL = 'http://localhost:5000/ipv6'
+
+
 def is_ipv6_enabled():
   if psutil.POSIX and psutil.LINUX:
     try:
@@ -51,23 +55,19 @@ def get_ipv6_addresses():
 # Function to send IPv6 addresses to server
 def send_ipv6_addresses(ipv6_addresses):
   try:
-    print(ipv6_addresses)
-    # Replace 'http://localhost:5000' with the URL of your server
-    url = 'http://localhost:5000/ipv6'
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     data = {'ipv6_addresses': ipv6_addresses, 'hostname': HOSTNAME, 'timestamp': str(datetime.now())}
-    response = requests.post(url, json=data)
+    response = requests.post(SERVER_URL, json=data)
     response.raise_for_status()  # Raise an exception for non-200 status codes
     print(f"{timestamp} - {HOSTNAME} IPv6 addresses sent successfully.")
   except requests.exceptions.RequestException as e:
-    print(f"{timestamp} - Error sending IPv6 addresses from {HOSTNAME}: {e}")
+    print(f"{timestamp} - Error sending IPv6 addresses {ipv6_addresses} from {HOSTNAME}:{e}")
 
 
 # Function to send notification to server if IPv6 is not enabled on the system
 def send_ipv6_not_enabled_notification():
   try:
-    # Replace 'http://localhost:5000' with the URL of your server
-    url = 'http://localhost:5000/ipv6/not-enabled'
+    url = f'{SERVER_URL}/not-enabled'
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     data = {
         'message': 'IPv6 is not enabled on the system',
