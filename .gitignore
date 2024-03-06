@@ -12,6 +12,8 @@ build/
 develop-eggs/
 dist/
 downloads/
+# Ignore Python library dependencies
+pythonlibs/
 eggs/
 .eggs/
 lib/
